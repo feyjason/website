@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RW DEVELOPMENT</title>
+  <script src="https://cdn.tailwindcss.com">
+    setTimeout(() => {
+      const logo = document.getElementById('logoText');
+      logo.style.letterSpacing = '4px';
+      logo.innerText = 'REAL WEB';
+    }, 2000);
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    @keyframes fadeSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    .animate-fade {
+      animation: fadeSlide 1s ease forwards;
+    }
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: black;
+      overflow-x: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 999px;
+      filter: blur(120px);
+      opacity: 0.2;
+    }
+
+    .card:hover img {
+      transform: scale(1.08);
+    }
+
+    .card {
+      transition: 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen relative">
+
+  <div class="glow bg-purple-500 top-[-200px] right-[-150px]"></div>
+  <div class="glow bg-cyan-500 bottom-[-250px] left-[-150px]"></div>
+
+  <!-- Navbar -->
+  <nav class="relative z-20 flex items-center justify-between px-8 py-6 border-b border-white/10 backdrop-blur-xl">
+    <h1 id="logoText" class="text-3xl font-extrabold bg-gradient-to-r from-purple-400 to-cyan-400 text-transparent bg-clip-text transition-all duration-700">
+      RW DEVELOPMENT
+    </h1>
+
+    <button onclick="addProject()" class="px-6 py-3 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition-all duration-300">
+      + Add Project
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative z-10 text-center px-6 pt-24 pb-16 max-w-6xl mx-auto animate-fade">
+    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+      Showcase Your
+      <span class="block bg-gradient-to-r from-purple-400 to-cyan-400 text-transparent bg-clip-text">
+        Projects Beautifully
+      </span>
+    </h1>
+
+    <p class="mt-8 text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+      A premium modern portfolio website where you can drag, edit, and display your projects professionally.
+    </p>
+  </section>
+
+  <!-- Projects -->
+  <section class="relative z-10 px-6 pb-24 max-w-7xl mx-auto">
+    <div id="projects" class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+      <!-- Project Card -->
+      <div class="card rounded-[30px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-full object-cover transition duration-500">
+        </div>
+
+        <div class="p-6 space-y-4">
+          <input value="AI Assistant App"
+            class="w-full bg-transparent text-2xl font-bold outline-none">
+
+          <textarea class="w-full bg-transparent text-gray-400 outline-none resize-none min-h-[90px]">A powerful AI assistant with modern futuristic design.</textarea>
+
+          <input value="https://yourproject.com"
+            class="project-url w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 outline-none text-sm">
+
+          <a href="#" target="_blank" class="project-link block text-center w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-cyan-500 font-semibold hover:scale-105 transition-all duration-300">
+            View Project
+          </a>
+        </div>
+      </div>
+
+      <!-- Project Card -->
+      <div class="card rounded-[30px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-full object-cover transition duration-500">
+        </div>
+
+        <div class="p-6 space-y-4">
+          <input value="E-Commerce Website"
+            class="w-full bg-transparent text-2xl font-bold outline-none">
+
+          <textarea class="w-full bg-transparent text-gray-400 outline-none resize-none min-h-[90px]">Modern online shopping platform with smooth UI animations.</textarea>
+
+          <input value="https://yourproject.com"
+            class="project-url w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 outline-none text-sm">
+
+          <a href="#" target="_blank" class="project-link block text-center w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-cyan-500 font-semibold hover:scale-105 transition-all duration-300">
+            View Project
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-8 text-center text-gray-500">
+    © 2026 RW DEVELOPMENT — Modern Portfolio Website
+  </footer>
+
+  <script>
+    document.addEventListener('input', function(e) {
+      if (e.target.classList.contains('project-url')) {
+        const card = e.target.closest('.card');
+        const button = card.querySelector('.project-link');
+        button.href = e.target.value;
+      }
+    });
+    function addProject() {
+      const container = document.getElementById('projects');
+
+      const card = document.createElement('div');
+      card.className = 'card rounded-[30px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl';
+
+      card.innerHTML = `
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-full object-cover transition duration-500">
+        </div>
+
+        <div class="p-6 space-y-4">
+          <input value="New Project"
+            class="w-full bg-transparent text-2xl font-bold outline-none">
+
+          <textarea class="w-full bg-transparent text-gray-400 outline-none resize-none min-h-[90px]">Write your project description here.</textarea>
+
+          <input value="https://yourproject.com"
+            class="project-url w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 outline-none text-sm">
+
+          <a href="#" target="_blank" class="project-link block text-center w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-cyan-500 font-semibold hover:scale-105 transition-all duration-300">
+            View Project
+          </a>
+        </div>
+      `;
+
+      container.appendChild(card);
+    }
+  </script>
+
+</body>
+</html>
